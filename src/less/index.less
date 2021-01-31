@@ -301,7 +301,7 @@ header{
           }
           .serv-title{
             position:absolute;
-            top:300px;
+            top:270px;
             left:30px;
             color:#fff;
             font-family:@mohave-b;
@@ -310,12 +310,12 @@ header{
           hr{
             width:85%;
             position:absolute;
-            top:330px;
+            top:300px;
             left:30px;
           }
           .serv-text{
             position:absolute;
-            top:360px;
+            top:320px;
             left:30px;
             color:#fff;
             font-family:@mohave-r;
@@ -359,7 +359,8 @@ header{
 /// ABOUT
 
 .about-us{
-  
+  padding:10px 0 40px 0;
+
   .row-about{
     .row-flex();
 
@@ -373,7 +374,7 @@ header{
     .col-about-text{
       .col();
       .size(5);
-      padding-top:8%;
+      padding-top:7%;
 
       .about-title{
         font-family:@mohave-b;
@@ -383,6 +384,7 @@ header{
         font-family:@mohave-r;
         font-size:20px;
         padding:25px 0;
+        line-height:1.4;
       }
     }
   }
@@ -454,6 +456,40 @@ footer{
         font-size:24px;
       }
     }
+  }
+  
+  .webit{
+    width:80px;
+    margin:0 auto;
+
+     a{
+      display: block;
+      width: 3.8rem;
+      height: 1rem;
+      background-size: cover;
+      background-position: center top;
+      background-image: url('../img/webit-logo.png');
+      -webkit-transition: .4s;
+      -o-transition: .4s;
+      transition: .4s;
+      font-size:15px;
+      line-height:10;
+     
+  
+      &:hover{
+        background-position: center -1.9rem;
+        
+  
+      }
+    }
+  }
+  
+
+  .copyright{
+    text-align:center;
+    padding-top:10px;
+    font-family: @mohave-r;
+    font-size:17px;
   }
 }
 
