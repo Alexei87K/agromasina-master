@@ -4,6 +4,9 @@ const HTMLPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
+const webpack = require('webpack');
+
 
 module.exports = {
   entry: './src/index.js',
@@ -22,40 +25,22 @@ module.exports = {
     port: 4200
   },
   plugins: [
+  //   new CopyPlugin([{
+  //     from: path.resolve(__dirname, 'src/img/'),
+  //     to:   path.resolve(__dirname, 'dist/img/')
+  //     }
+  //  ]),
     new HTMLPlugin({
       filename: 'index.html',
       template: './src/index.html'
     }),
-    new HTMLPlugin({
-      filename: 'products.html',
-      template: './src/products.html'
-    }),
-    new HTMLPlugin({
-      filename: 'productend.html',
-      template: './src/productend.html'
-    }),
-    new HTMLPlugin({
-      filename: 'services.html',
-      template: './src/services.html'
-    }),
-    new HTMLPlugin({
-      filename: 'newsend.html',
-      template: './src/newsend.html'
-    }),
-    new HTMLPlugin({
-      filename: 'about.html',
-      template: './src/about.html'
-    }),
-    new HTMLPlugin({
-      filename: 'contacts.html',
-      template: './src/contacts.html'
-    }),
-    new HTMLPlugin({
-      filename: 'news.html',
-      template: './src/news.html'
-    }),
+    
     new MiniCssExtractPlugin({
       filename: 'css/style.css'
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
     })
   ],
   resolve: {
@@ -69,6 +54,8 @@ module.exports = {
       },
       {
         test: /\.less$/,
+
+        
         use: [
           MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
       },
@@ -79,14 +66,14 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
-        // exclude: [/node_modules/, require.resolve('./src/productend.html')],
+        
         use:[
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
-              outputPath:'img',
-              publicPath:'/img/'
+              name: `img/[name].[ext]`,
+              
+              publicPath:'../'
             },
           }
            

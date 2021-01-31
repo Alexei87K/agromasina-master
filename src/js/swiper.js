@@ -1,24 +1,30 @@
 $(document).ready(function(){
   
     
-    var galleryThumbs = new Swiper('.gallery-thumbs', {
-      spaceBetween: 7,
-      slidesPerView: 6,
-      freeMode: true,
-      watchSlidesVisibility: true,
-      watchSlidesProgress: true,
-    });
-    var galleryTop = new Swiper('.gallery-top', {
-      spaceBetween: 10,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      thumbs: {
-        swiper: galleryThumbs
-      }
-    });
+    const swiper = new Swiper('.swiper-container', {
+        // Optional parameters
+      
+        loop: true,
+        
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+          clickable:true,
+
+          // renderBullet: function (index, className) {
+          //   return '<span class="' + className + '">' + (index + 1) + '</span>';
+          // }
+        },
+      
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      
+      
+       
+      });
   
   
 });
-
